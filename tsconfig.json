@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "ESNext", // был "es6",
+    "target": "es5",
+    "jsx":  "react-jsx" , //было "react", сделали, чтоб реакт не импортировать в файлы
+    "allowJs": true,
+    "moduleResolution": "node",
+
+    "allowSyntheticDefaultImports": true,
+    // const Moment = = require('moment') ---> import Moment from 'moment'
+    "esModuleInterop": true,
+    // если нет default  import
+    // import * as Moment2 from 'moment2' ---> import Moment2 from 'moment2'
+    "baseUrl":".",
+    "paths":{
+      "@/*": ["./src/*" ],//для алиасов
+    }
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
