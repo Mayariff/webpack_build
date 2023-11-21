@@ -67,5 +67,24 @@ export function buildLoaders(options: buildOptionType): ModuleOptions["rules"] {
         }],
     }
 
-    return [svgLouder, assetLouder, scssLoader, tsLoader]
+    const babelLoader = {
+        test:/\.tsx?$/,
+        exclude: /node_modules/,
+        use: {
+            loader: "babel-loader",
+            options: {
+                presets: [
+                    '@babel/preset-env',
+                    "@babel/preset-typescript", //в данном случаем можно без конфига, тк вебпак собирает
+                    ["@babel/preset-react", {"runtime": isDev ? "automatic": "classic"}]
+                ]
+            }
+        }
+    }
+
+    return [svgLouder,
+        assetLouder,
+        scssLoader,
+        /*tsLoader ,*/ //пока бабель используется можно убрать
+        babelLoader]
 }

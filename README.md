@@ -60,6 +60,13 @@ npm install --save-dev css-loader (https://webpack.js.org/loaders/css-loader/)
 -для этого в ts-louder опцию transpileOnly: true  - убираем проверку типов из сборки
 и ставим плагин fork-ts-checker-webpack-plugin
 
+----
+11. BABEL (без него компилит ts loader )- его ставят, тк кастомизация лучшеБ много плагинов
+    npm install --save-dev babel-loader @babel/core (https://babeljs.io/setup#installation)
+добавляем лоудер. Для tsб react и другие настройки в пресетах:
+npm install --save-dev @babel/preset-typescript
+npm install --save-dev @babel/preset-react  (https://babeljs.io/docs/babel-preset-react)
+можно создать     babel.config.json, если бабель не только в веб пак исп-ся и уже там пресеты настраивать нпр в Jest
 
 скрипты:
 "scripts": {
